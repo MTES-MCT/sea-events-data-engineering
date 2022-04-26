@@ -1,0 +1,56 @@
+[
+    {
+      "registry_number": 931194,
+      "employer_number": "YAD0586",
+      "SIRET": 40018768700013,
+      "is_commute_accident": true,
+      "is_with_work_interruption": true,
+      "event_date": "2019/02/11",
+      "offloading_date": null
+    },
+    {
+      "registry_number": 931195,
+      "employer_number": "YAD0587",
+      "SIRET": 85019767800023,
+      "is_commute_accident": false,
+      "is_with_work_interruption": true,
+      "event_date": "2021/04/22",
+      "offloading_date": "2021/04/22"
+    },
+    {
+      "registry_number": 931196,
+      "employer_number": "YAD0588",
+      "SIRET": 35524766700024,
+      "is_commute_accident": false,
+      "is_with_work_interruption": true,
+      "event_date": "2021/08/13",
+      "offloading_date": "2021/08/13"
+    },
+    {
+      "registry_number": 931197,
+      "employer_number": "YAD0589",
+      "SIRET": 31396419300049,
+      "is_commute_accident": false,
+      "is_with_work_interruption": true,
+      "event_date": "2019/05/14",
+      "offloading_date": "2019/05/15"
+    },
+    {
+      "registry_number": 931198,
+      "employer_number": "YAD0590",
+      "SIRET": 93754539700056,
+      "is_commute_accident": false,
+      "is_with_work_interruption": false,
+      "event_date": "2020/06/03",
+      "offloading_date": "2020/10/03"
+    },
+    {
+      "registry_number": 931199,
+      "employer_number": "YAD0591",
+      "SIRET": 93754539700057,
+      "is_commute_accident": false,
+      "is_with_work_interruption": false,
+      "event_date": "2019/09/16",
+      "offloading_date": "2019/09/16"
+    }
+  ]
