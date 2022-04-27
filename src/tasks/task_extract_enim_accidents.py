@@ -1,12 +1,15 @@
 from prefect import Task
 
 from src.entities import AccidentEnim
-from src.connectors import get_new_enim_accidents
+from src.repositories import EnimAccidentClient
 
 
 class ExtractEnimAccidents(Task):
-    
+
+    _enim_accident_client = EnimAccidentClient()
+
     def run(self) -> list[AccidentEnim]:
-        return get_new_enim_accidents()
+        return self._enim_accident_client.get_all()
+
 
 extract_enim_accidents = ExtractEnimAccidents()

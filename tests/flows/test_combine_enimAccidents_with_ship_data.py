@@ -17,10 +17,26 @@ class TestCombineEnimAccidentsWithShipData:
         - Load the combined informations into the storage
         """
         expected_edges = {
-            Edge(tasks.extract_enim_accidents, tasks.combine_enim_accidents_with_ships, "enim_accidents"),
-            Edge(tasks.extract_enim_accidents, tasks.extract_ships_data, "enim_accidents"),
-            Edge(tasks.extract_ships_data, tasks.combine_enim_accidents_with_ships, "ship_data"),
-            Edge(tasks.combine_enim_accidents_with_ships, tasks.load_enim_accidents_with_ship, "enim_accidents_with_ship_data"),
+            Edge(
+                tasks.extract_enim_accidents,
+                tasks.combine_enim_accidents_with_ships,
+                "enim_accidents",
+            ),
+            Edge(
+                tasks.extract_enim_accidents,
+                tasks.extract_ships_data,
+                "enim_accidents",
+            ),
+            Edge(
+                tasks.extract_ships_data,
+                tasks.combine_enim_accidents_with_ships,
+                "ship_data",
+            ),
+            Edge(
+                tasks.combine_enim_accidents_with_ships,
+                tasks.load_enim_accidents_with_ship,
+                "enim_accidents_with_ship_data",
+            ),
         }
 
         assert len(expected_edges) == len(combine_enim_accidents_with_ship_flow.edges)

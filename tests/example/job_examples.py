@@ -10,6 +10,9 @@ extract_example = Extract()
 transform_example = Transform()
 load_example = Load()
 
-basic_test_flow.add_edge(upstream_task=extract_example, downstream_task=transform_example, key="x")
-basic_test_flow.add_edge(upstream_task=transform_example, downstream_task=load_example, key="y")
-
+basic_test_flow.add_edge(
+    upstream_task=extract_example, downstream_task=transform_example, key="x"
+)
+basic_test_flow.add_edge(
+    upstream_task=transform_example, downstream_task=load_example, key="y"
+)

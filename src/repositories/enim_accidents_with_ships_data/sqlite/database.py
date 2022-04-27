@@ -5,7 +5,7 @@ Base = declarative_base()
 
 
 class AccidentEnimWithShipDataTable(Base):
-    __tablename__ = 'accident_enim_with_ship_data'
+    __tablename__ = "accident_enim_with_ship_data"
     registry_number = Column(String, primary_key=True)
     employer_number = Column(String)
     SIRET = Column(String)
@@ -28,5 +28,5 @@ class AccidentEnimWithShipDataTable(Base):
     ship_type = Column(String)
 
 
-engine = create_engine('sqlite:///enim_accidents_with_ships_data.db')
+engine = create_engine("sqlite:///enim_accidents_with_ships_data.db")
 Base.metadata.create_all(engine)

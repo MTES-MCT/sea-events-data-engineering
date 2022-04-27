@@ -6,7 +6,7 @@ from src.entities import Ship
 
 
 class ShipClientDamOracle(ShipClientABC):
-    def get_ships_by_registry_number(self, registry_numbers: Collection[str]) -> list[Ship]:
+    def get_by_registry_number(self, registry_numbers: Collection[str]) -> list[Ship]:
         query = f"""
             WITH GINA_VUE_NAVIRE_DETAIL_SUBSET AS (
                 SELECT

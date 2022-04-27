@@ -8,4 +8,4 @@ class TestBasicTasks:
 
         task_result = extract_example.run()
 
-        assert task_result  == expected_result
+        assert task_result == expected_result

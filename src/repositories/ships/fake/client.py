@@ -7,10 +7,10 @@ from src.entities import Ship
 
 
 class ShipClientFake(ShipClientABC):
-    def get_ships_by_registry_number(self, registry_numbers: Collection[str]) -> list[Ship]:
-        with shelve.open(SHELVE_NAME) as db:
+    def get_by_registry_number(self, registry_numbers: Collection[str]) -> list[Ship]:
+        with shelve.open(SHELVE_NAME) as opened_shelf:
             ships = []
             for registry_number in set(registry_numbers):
-                if str(registry_number) in db:
-                    ships.append(Ship(**db[str(registry_number)]))
+                if str(registry_number) in opened_shelf:
+                    ships.append(Ship(**opened_shelf[str(registry_number)]))
             return ships
