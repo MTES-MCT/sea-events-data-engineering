@@ -24,3 +24,10 @@ ENGINE_PATH_WIN_AUTH = (
 )
 
 db_engine = create_engine(ENGINE_PATH_WIN_AUTH)
+
+
+def repository_setup():
+    """
+    Initialize the database and remove existing data.
+    """
+    raise NotImplementedError("setup is handled by another service")

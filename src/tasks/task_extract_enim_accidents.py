@@ -8,7 +8,7 @@ class ExtractEnimAccidents(Task):
 
     _enim_accident_client = EnimAccidentClient()
 
-    def run(self) -> list[AccidentEnim]:
+    def run(self) -> list[AccidentEnim]:  # type: ignore
         return self._enim_accident_client.get_all()
 
 

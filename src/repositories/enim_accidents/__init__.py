@@ -3,6 +3,21 @@ from .abc import EnimAccidentClientABC
 from src.entities import AccidentEnim
 
 
+def repository_setup(repository_implementation: str):
+    """
+    Initialize the database and restore initial data and state.
+    """
+    match repository_implementation:
+        case "fake":
+            from .fake.database import repository_setup as fake_repository_setup
+
+            fake_repository_setup()
+        case _:
+            raise ValueError(
+                f"Unknown repository_implementation: {repository_implementation}"
+            )
+
+
 class EnimAccidentClient(EnimAccidentClientABC):
     def __init__(self, enim_accidents_repository: str = Config.ENIM_ACCIDENT_CLIENT):
         self._implementation: EnimAccidentClientABC = NotImplemented

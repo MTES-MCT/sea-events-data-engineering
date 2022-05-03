@@ -7,7 +7,7 @@ from src.repositories import EnimAccidentWithShipsDataClient
 class LoadEnimAccidentWithShip(Task):
     _enim_accident_with_ship_data_client = EnimAccidentWithShipsDataClient()
 
-    def run(self, enim_accidents_with_ship_data: AccidentEnimWithShipData) -> None:
+    def run(self, enim_accidents_with_ship_data: list[AccidentEnimWithShipData]) -> None:  # type: ignore
         self._enim_accident_with_ship_data_client.create_many(
             enim_accidents_with_ship_data
         )

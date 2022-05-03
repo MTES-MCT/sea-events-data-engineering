@@ -17,7 +17,7 @@ combine_enim_accidents_with_ship_flow.add_edge(
 combine_enim_accidents_with_ship_flow.add_edge(
     tasks.extract_ships_data,
     tasks.combine_enim_accidents_with_ships,
-    "ship_data",
+    "available_ships",
 )
 combine_enim_accidents_with_ship_flow.add_edge(
     tasks.combine_enim_accidents_with_ships,

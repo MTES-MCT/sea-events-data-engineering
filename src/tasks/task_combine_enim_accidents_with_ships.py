@@ -5,13 +5,20 @@ from prefect import Task
 from src.entities import AccidentEnim, Ship, AccidentEnimWithShipData
 
 
+# static type checking limitation: https://github.com/PrefectHQ/prefect/issues/4649
 class CombineAccidentWithShip(Task):
-    def run(
-        self, ship_data: Collection[Ship], enim_accidents: Collection[AccidentEnim]
+    def run(  # type: ignore
+        self, available_ships: Collection[Ship], enim_accidents: Collection[AccidentEnim]
     ) -> list[AccidentEnimWithShipData]:
         combined_data = []
         for enim_accident in enim_accidents:
-            ship = self._find_ship(enim_accident, ship_data)
+            ship = self._find_ship(enim_accident, available_ships)
+            enim_accident_with_ship_data = self._add_ship_data_to_enim_accident(enim_accident, ship)
+            combined_data.append(enim_accident_with_ship_data)
+
+        return combined_data
+
+    def _add_ship_data_to_enim_accident(self, enim_accident: AccidentEnim, ship: Ship | None) -> AccidentEnimWithShipData:
 
             combined_attributes = {
                 "ship_name": None,
@@ -32,15 +39,12 @@ class CombineAccidentWithShip(Task):
                 combined_attributes = ship.dict()
                 combined_attributes.pop("registry_number")
 
-            combined_data.append(
-                AccidentEnimWithShipData(
-                    **enim_accident.dict(),
-                    **combined_attributes,
-                )
+            return AccidentEnimWithShipData(
+                **enim_accident.dict(),
+                **combined_attributes,
             )
-        return combined_data
 
-    def _find_ship(self, enim_accident: AccidentEnim, ship_data: Ship) -> Ship | None:
+    def _find_ship(self, enim_accident: AccidentEnim, ship_data: Collection[Ship]) -> Ship | None:
         primary_key_name = "registry_number"
         expected_primary_key = getattr(enim_accident, primary_key_name)
         for ship in ship_data:

@@ -5,11 +5,11 @@ from src import tasks
 
 
 class TestCombineEnimAccidentsWithShipData:
-    def test_flow_is_running(self):
+    def test_flow_is_running(self, reset_repository):
         flow_state = combine_enim_accidents_with_ship_flow.run()
         assert flow_state.is_successful()
 
-    def test_execution_graph_is_ok(self):
+    def test_execution_graph_is_ok(self, reset_repository):
         """
         - Gather the ENIM accidents to injest
         - From the ENIM accidents to inject, gather related ships that can be found
@@ -30,7 +30,7 @@ class TestCombineEnimAccidentsWithShipData:
             Edge(
                 tasks.extract_ships_data,
                 tasks.combine_enim_accidents_with_ships,
-                "ship_data",
+                "available_ships",
             ),
             Edge(
                 tasks.combine_enim_accidents_with_ships,

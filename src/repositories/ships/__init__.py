@@ -5,6 +5,25 @@ from .abc import ShipClientABC
 from src.entities import Ship
 
 
+def repository_setup(repository_implementation: str):
+    """
+    Initialize the database and restore initial data and state.
+    """
+    match repository_implementation:
+        case "fake":
+            from .fake.database import repository_setup as fake_repository_setup
+
+            fake_repository_setup()
+        case "dam_oracle":
+            from .dam_oracle.database import repository_setup as dam_oracle_repository_setup
+
+            dam_oracle_repository_setup()
+        case _:
+            raise ValueError(
+                f"Unknown repository_implementation: {repository_implementation}"
+            )
+
+
 class ShipClient(ShipClientABC):
     def __init__(self, ship_repository: str = Config.SHIP_CLIENT):
         self._implementation: ShipClientABC = NotImplemented

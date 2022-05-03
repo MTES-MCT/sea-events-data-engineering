@@ -3,6 +3,25 @@ from .abc import EnimAccidentWithShipsDataClientABC
 from src.entities import AccidentEnimWithShipData
 
 
+def repository_setup(repository_implementation: str):
+    """
+    Initialize the database and restore initial data and state.
+    """
+    match repository_implementation:
+        case "fake":
+            from .fake.database import repository_setup as fake_repository_setup
+
+            fake_repository_setup()
+        case "sqlite":
+            from .sqlite.database import repository_setup as sqlite_repository_setup
+
+            sqlite_repository_setup()
+        case _:
+            raise ValueError(
+                f"Unknown repository_implementation: {repository_implementation}"
+            )
+
+
 class EnimAccidentWithShipsDataClient(EnimAccidentWithShipsDataClientABC):
     def __init__(
         self,

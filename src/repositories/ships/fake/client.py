@@ -12,5 +12,5 @@ class ShipClientFake(ShipClientABC):
             ships = []
             for registry_number in set(registry_numbers):
                 if str(registry_number) in opened_shelf:
-                    ships.append(Ship(**opened_shelf[str(registry_number)]))
+                    ships.append(Ship(**opened_shelf[str(registry_number)]))  # type: ignore
             return ships
