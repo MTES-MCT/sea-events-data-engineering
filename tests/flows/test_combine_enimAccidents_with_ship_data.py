@@ -24,11 +24,11 @@ class TestCombineEnimAccidentsWithShipData:
             ),
             Edge(
                 tasks.extract_enim_accidents,
-                tasks.extract_ships_data,
+                tasks.extract_ship_data_from_enim_accidents,
                 "enim_accidents",
             ),
             Edge(
-                tasks.extract_ships_data,
+                tasks.extract_ship_data_from_enim_accidents,
                 tasks.combine_enim_accidents_with_ships,
                 "available_ships",
             ),

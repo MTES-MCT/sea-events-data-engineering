@@ -1,0 +1,102 @@
+{
+  "type": "SECMAR",
+  "version": 1,
+  "identification": {
+    "yearOfCreation": 2021,
+    "numberInYear": 3580,
+    "operativeType": "SAR",
+    "operativeEvent": "SITUATION_INDETERMINEE",
+    "principalVehiculeName": "AGECANONIX"
+  },
+  "crossCoordonnateurId": "GN_GRISNEZ",
+  "initialCross": "GN_GRISNEZ",
+  "principalImplique": "6d814b80-04a2-44c6-a13a-3eb4bd1b8723",
+  "vehicules": [
+    {
+      "uuid": "f31ba24f-f299-4127-a9f6-254db420fb43",
+      "isPinned": false,
+      "isShip": true,
+      "etatInitial": [
+        "EN_ROUTE"
+      ],
+      "type": "PLAISANCE_VOILE",
+      "technicalId": "60054a9b8d83932799501b70",
+      "nom": "AGECANONIX",
+      "callsign": "FAG4689",
+      "mmsi": "227942370",
+      "immatriculation": "F90073",
+      "quartierImmat": "TL",
+      "longueur": 12.5,
+      "referentielType": "VOILIER",
+      "flag": "FRA",
+      "builtYear": 2019,
+      "fait": [
+        "SITUATION_INDETERMINEE"
+      ],
+      "resultat": [
+        "A_LA_DERIVE"
+      ],
+      "flotteurPrincipal": true,
+      "flotteurImmatricule": true
+    }
+  ],
+  "flotteurPrincipal": "f31ba24f-f299-4127-a9f6-254db420fb43",
+  "bulletinsMeteo": [
+    {
+      "uuid": "0cef5fa5-6af6-41d0-a10b-567064a0e434",
+      "isPinned": false,
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0,
+          0
+        ]
+      },
+      "gdh": "2021-11-30T07:46:04.718Z",
+      "source": "CROSS GRIS NEZ",
+      "type": "OBSERVATIONS",
+      "gdhObs": "2021-11-30T07:46:04.718Z",
+      "visibilite": 37040,
+      "nebulosite": "NEBU_4",
+      "secteurVent": "W",
+      "forceVent": "FORCE_7",
+      "directionVent": 4.712387295403851,
+      "vitesseVent": 14.713145114824266,
+      "etatMer": "ETAT_MER_4",
+      "tempMer": 282.54999999999995
+    }
+  ],
+  "gdhDebut": "2021-11-27T00:19:35.678Z",
+  "gdhFin": "2021-11-30T09:37:20.332Z",
+  "npi": 3,
+  "statut": "CLOS",
+  "isTraining": false,
+  "isAisAlert": false,
+  "isAsnAlert": false,
+  "isInmcAlert": false,
+  "isCospasAlert": false,
+  "isPflauAlert": false,
+  "isManAlert": true,
+  "zoneResponsabilite": "RESP_ETRANGERE",
+  "moyenAlerte": "TELEPHONE_IRIDIUM",
+  "quiAlerte": "CROSS",
+  "gdhAlert": "2021-11-27T00:19:35.678Z",
+  "retexTag": [
+    "SAR SPOC 2847"
+  ],
+  "autoriteResponsable": "SG_MER",
+  "tgi": false,
+  "navireConnecte": false,
+  "referencePosition": {
+    "coordinates": [
+      -25.892667,
+      30.048833
+    ],
+    "latitude": 30.048833,
+    "longitude": -25.892667
+  },
+  "chatStatus": "ARCHIVED",
+  "chrono": "GN-2021-SAR-3580",
+  "chronoLite": "GN-2021-3580",
+  "id": "61a179f790d28905d48ead5e"
+}

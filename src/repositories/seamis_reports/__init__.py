@@ -1,6 +1,6 @@
 from config import Config
-from .abc import EnimAccidentClientABC
-from src.entities import AccidentEnim
+from .abc import SeamisReportClientABC
+from src.entities import SeamisReport
 
 
 def repository_setup(repository_implementation: str):
@@ -18,20 +18,20 @@ def repository_setup(repository_implementation: str):
             )
 
 
-class EnimAccidentClient(EnimAccidentClientABC):
-    def __init__(self, enim_accidents_repository: str = Config.ENIM_ACCIDENT_CLIENT):
-        self._implementation: EnimAccidentClientABC = NotImplemented
-        match enim_accidents_repository:
+class SeamisReportClient(SeamisReportClientABC):
+    def __init__(self, seamis_report_repository: str = Config.SEAMIS_REPORT_CLIENT):
+        self._implementation: SeamisReportClientABC = NotImplemented
+        match seamis_report_repository:
             case "fake":
-                from src.repositories.enim_accidents.fake.client import (
-                    EnimAccidentClientFake,
+                from src.repositories.seamis_reports.fake.client import (
+                    SeamisReportClientFake,
                 )
 
-                self._implementation = EnimAccidentClientFake()
+                self._implementation = SeamisReportClientFake()
             case _:
                 raise ValueError(
-                    f"Unknown enim accident client: {Config.ENIM_ACCIDENT_CLIENT}"
+                    f"Unknown seamis report client: {Config.SEAMIS_REPORT_CLIENT}"
                 )
 
-    def get_all(self) -> list[AccidentEnim]:
+    def get_all(self) -> list[SeamisReport]:
         return self._implementation.get_all()

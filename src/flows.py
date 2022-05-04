@@ -6,7 +6,7 @@ combine_enim_accidents_with_ship_flow = Flow("combine_enim_accidents_with_ship_f
 
 combine_enim_accidents_with_ship_flow.add_edge(
     tasks.extract_enim_accidents,
-    tasks.extract_ships_data,
+    tasks.extract_ship_data_from_enim_accidents,
     "enim_accidents",
 )
 combine_enim_accidents_with_ship_flow.add_edge(
@@ -15,7 +15,7 @@ combine_enim_accidents_with_ship_flow.add_edge(
     "enim_accidents",
 )
 combine_enim_accidents_with_ship_flow.add_edge(
-    tasks.extract_ships_data,
+    tasks.extract_ship_data_from_enim_accidents,
     tasks.combine_enim_accidents_with_ships,
     "available_ships",
 )
@@ -23,4 +23,27 @@ combine_enim_accidents_with_ship_flow.add_edge(
     tasks.combine_enim_accidents_with_ships,
     tasks.load_enim_accidents_with_ship,
     "enim_accidents_with_ship_data",
+)
+
+enhance_seamis_reports_flow = Flow("enhance_seamis_reports_flow")
+
+enhance_seamis_reports_flow.add_edge(
+    tasks.extract_seamis_reports,
+    tasks.extract_ship_data_from_seamis_reports,
+    "seamis_reports",
+)
+enhance_seamis_reports_flow.add_edge(
+    tasks.extract_ship_data_from_seamis_reports,
+    tasks.combine_seamis_reports_with_ships,
+    "available_ships",
+)
+enhance_seamis_reports_flow.add_edge(
+    tasks.extract_seamis_reports,
+    tasks.combine_seamis_reports_with_ships,
+    "seamis_reports",
+)
+enhance_seamis_reports_flow.add_edge(
+    tasks.combine_seamis_reports_with_ships,
+    tasks.load_seamis_reports_with_ship,
+    "enhanced_seamis_reports",
 )

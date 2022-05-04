@@ -1,0 +1,67 @@
+{
+  "type": "SECMAR",
+  "version": 1,
+  "identification": {
+    "yearOfCreation": 2022,
+    "numberInYear": 146,
+    "operativeType": "SAR",
+    "operativeEvent": "ISOLEMENT_PAR_LA_MAREE"
+  },
+  "crossCoordonnateurId": "CN_CORSEN",
+  "initialCross": "CN_CORSEN",
+  "principalImplique": "94721180-be7a-43b4-8f8e-7f40afc25651",
+  "bulletinsMeteo": [
+    {
+      "uuid": "16bc1694-1507-4105-918f-aefea3fa7661",
+      "isPinned": false,
+      "position": {
+        "type": "Point",
+        "coordinates": [
+          0.0,
+          0.0
+        ]
+      },
+      "gdh": "2022-01-29T00:17:13.904Z",
+      "source": "METEO-France",
+      "type": "PREVISIONS",
+      "gdhObs": "2022-01-28T12:00:00Z",
+      "visibilite": 3704.0,
+      "nebulosite": "NEBU_9",
+      "secteurVent": "W",
+      "forceVent": "FORCE_4",
+      "directionVent": 4.891220464838984,
+      "vitesseVent": 5.798842340481521,
+      "directionCourant": 1.9757617806182461,
+      "vitesseCourant": 0.05439511650667769,
+      "etatMer": "ETAT_MER_3",
+      "tempMer": 282.2333984375,
+      "tempAir": 282.74169921875
+    }
+  ],
+  "gdhDebut": "2022-01-28T23:38:41.787Z",
+  "gdhFin": "2022-01-29T10:40:07.892Z",
+  "npi": 1,
+  "statut": "CLOS",
+  "isTraining": false,
+  "isAisAlert": false,
+  "isAsnAlert": false,
+  "isInmcAlert": false,
+  "isCospasAlert": false,
+  "isPflauAlert": false,
+  "isManAlert": true,
+  "departement": "22",
+  "zoneResponsabilite": "PLAGE_300M",
+  "moyenAlerte": "TELEPHONE_MOBILE",
+  "quiAlerte": "CODIS_POMPIERS",
+  "gdhAlert": "2022-01-28T23:38:41.787Z",
+  "autoriteResponsable": "",
+  "tgi": "",
+  "navireConnecte": "",
+  "crossAccessToken": "",
+  "chatId": "",
+  "publicChatId": "",
+  "chatStatus": "",
+  "chrono": "CN-2022-SAR-0146",
+  "chronoLite": "CN-2022-0146",
+  "id": "61f47e99650ec605d384220b"
+}

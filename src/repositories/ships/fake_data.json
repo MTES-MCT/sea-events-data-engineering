@@ -110,5 +110,21 @@
       "navigation_type_navpro": "",
       "navigation_type_gina": "NC-NAVIGATION COTIERE",
       "ship_type": "FILEYEUR"
+    },
+    {
+      "ship_name": "Le Goéland 3",
+      "registry_number": "F90073",
+      "num_version": 1,
+      "IMO_number": 8731027,
+      "flag_state": "France",
+      "gross_tonnage": 22.23,
+      "built_year": 1975,
+      "hull_material": "acier",
+      "propulsion_type": "explosion",
+      "length_overall": 11,
+      "national_location": "Etel",
+      "navigation_type_navpro": "",
+      "navigation_type_gina": "NC-NAVIGATION COTIERE",
+      "ship_type": "FILEYEUR"
     }
   ]
