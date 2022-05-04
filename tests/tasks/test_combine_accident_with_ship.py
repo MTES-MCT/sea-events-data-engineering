@@ -73,7 +73,7 @@ class TestCombineSeamisReportsWithShips:
         assert isinstance(CombineSeamisReportsWithShips(), Task)
 
     def test_ok(self):
-        combine_seamis_report_with_ship = CombineSeamisReportsWithShips()
+        combine_seamis_reports_with_ships = CombineSeamisReportsWithShips()
         seamis_reports = [
             SeamisReport(
                 registry_number=931196,
@@ -117,12 +117,12 @@ class TestCombineSeamisReportsWithShips:
             )
         ]
 
-        task_result = combine_seamis_report_with_ship.run(ships, seamis_reports)
+        task_result = combine_seamis_reports_with_ships.run(ships, seamis_reports)
 
         assert task_result == expected_result
 
     def test_no_matching_ship(self):
-        combine_seamis_report_with_ship = CombineSeamisReportsWithShips()
+        combine_seamis_reports_with_ships = CombineSeamisReportsWithShips()
         seamis_reports = [
             SeamisReport(
                 registry_number=931196,
@@ -149,12 +149,12 @@ class TestCombineSeamisReportsWithShips:
             )
         ]
 
-        task_result = combine_seamis_report_with_ship.run(ships, seamis_reports)
+        task_result = combine_seamis_reports_with_ships.run(ships, seamis_reports)
 
         assert task_result == expected_result
 
     def test_seamis_report_without_registry_number(self):
-        combine_seamis_report_with_ship = CombineSeamisReportsWithShips()
+        combine_seamis_reports_with_ships = CombineSeamisReportsWithShips()
         seamis_reports = [
             SeamisReport(
                 registry_number=None,
@@ -181,6 +181,6 @@ class TestCombineSeamisReportsWithShips:
             )
         ]
 
-        task_result = combine_seamis_report_with_ship.run(ships, seamis_reports)
+        task_result = combine_seamis_reports_with_ships.run(ships, seamis_reports)
 
         assert task_result == expected_result
