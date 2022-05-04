@@ -9,6 +9,7 @@ from src.entities import SeamisReportWithShipData
 
 class SeamisReportWithShipDataClientSQLite(SeamisReportWithShipDataClientABC):
     def create_many(self, data_to_load: list[SeamisReportWithShipData]) -> None:
+
         with Session(engine) as session:
             for data in data_to_load:
                 self._create_one(session, data)

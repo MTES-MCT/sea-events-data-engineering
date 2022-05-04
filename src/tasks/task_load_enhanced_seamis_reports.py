@@ -8,6 +8,7 @@ class LoadSeamisReportsWithShip(Task):
     _seamis_report_with_ship_data_client = SeamisReportWithShipDataClient()
 
     def run(self, enhanced_seamis_reports: list[SeamisReportWithShipData]) -> None:  # type: ignore
+        self.logger.info(f"Creating {enhanced_seamis_reports} records")
         self._seamis_report_with_ship_data_client.create_many(enhanced_seamis_reports)
 
 

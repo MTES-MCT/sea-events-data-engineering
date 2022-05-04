@@ -76,6 +76,7 @@ class TestCombineSeamisReportsWithShips:
         combine_seamis_reports_with_ships = CombineSeamisReportsWithShips()
         seamis_reports = [
             SeamisReport(
+                report_identifier="JS-2020-SAR-1234",
                 registry_number=931196,
                 occurrence_date="2021/08/13",
             )
@@ -100,6 +101,7 @@ class TestCombineSeamisReportsWithShips:
         ]
         expected_result = [
             SeamisReportWithShipData(
+                report_identifier="JS-2020-SAR-1234",
                 registry_number=931196,
                 occurrence_date="2021/08/13",
                 num_version=1,
@@ -125,6 +127,7 @@ class TestCombineSeamisReportsWithShips:
         combine_seamis_reports_with_ships = CombineSeamisReportsWithShips()
         seamis_reports = [
             SeamisReport(
+                report_identifier="JS-2020-SAR-1234",
                 registry_number=931196,
                 occurrence_date="2021/08/13",
             )
@@ -132,6 +135,7 @@ class TestCombineSeamisReportsWithShips:
         ships = []
         expected_result = [
             SeamisReportWithShipData(
+                report_identifier="JS-2020-SAR-1234",
                 registry_number=931196,
                 occurrence_date="2021/08/13",
                 num_version=None,
@@ -157,6 +161,7 @@ class TestCombineSeamisReportsWithShips:
         combine_seamis_reports_with_ships = CombineSeamisReportsWithShips()
         seamis_reports = [
             SeamisReport(
+                report_identifier="JS-2020-SAR-1234",
                 registry_number=None,
                 occurrence_date="2021/08/13",
             )
@@ -164,6 +169,7 @@ class TestCombineSeamisReportsWithShips:
         ships = []
         expected_result = [
             SeamisReportWithShipData(
+                report_identifier="JS-2020-SAR-1234",
                 registry_number=None,
                 occurrence_date="2021/08/13",
                 num_version=None,

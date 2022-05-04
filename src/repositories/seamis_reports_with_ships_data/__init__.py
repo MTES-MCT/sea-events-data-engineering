@@ -47,4 +47,4 @@ class SeamisReportWithShipDataClient(SeamisReportWithShipDataClientABC):
                 )
 
     def create_many(self, data_to_load: list[SeamisReportWithShipData]) -> None:
-        pass
+        self._implementation.create_many(data_to_load)

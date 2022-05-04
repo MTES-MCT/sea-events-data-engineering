@@ -14,6 +14,7 @@ def repository_setup():
             raw_seamis_report = json.load(fake_data_file)
             seamis_report_occurrence_data = {
                 "occurrence_date": raw_seamis_report["gdhAlert"],
+                "report_identifier": raw_seamis_report["chrono"],
             }
             for vehicle in raw_seamis_report.get("vehicules", [dict()]):
                 seamis_report = {

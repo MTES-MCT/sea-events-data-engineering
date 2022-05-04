@@ -52,6 +52,7 @@ class AccidentEnimWithShipData(BaseModel):
 
 
 class SeamisReport(BaseModel):
+    report_identifier: str
     registry_number: str | None
     occurrence_date: str
 
