@@ -1,11 +1,12 @@
 from prefect import Task
 
 from src.entities import AccidentEnim
-from src.repositories import EnimAccidentClientABC
+from src.repositories import enim_accidents_client_factory
 
 
 class ExtractEnimAccidents(Task):
-    def run(self, enim_accident_client: EnimAccidentClientABC) -> list[AccidentEnim]:  # type: ignore
+    def run(self, enim_accident_client_implementation: str) -> list[AccidentEnim]:  # type: ignore
+        enim_accident_client = enim_accidents_client_factory(enim_accident_client_implementation)
         return enim_accident_client.get_all()
 
 

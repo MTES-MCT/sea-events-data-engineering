@@ -1,6 +1,6 @@
 from prefect.core.edge import Edge
 
-from src.flows import combine_enim_accidents_with_ship_flow
+from src.flows import combine_enim_accidents_with_ship_flow, enim_accident_client_param
 from src import tasks
 
 
@@ -17,6 +17,11 @@ class TestCombineEnimAccidentsWithShipData:
         - Load the combined informations into the storage
         """
         expected_edges = {
+            Edge(
+                enim_accident_client_param,
+                tasks.extract_enim_accidents,
+                "enim_accident_client_implementation",
+            ),
             Edge(
                 tasks.extract_enim_accidents,
                 tasks.combine_enim_accidents_with_ships,

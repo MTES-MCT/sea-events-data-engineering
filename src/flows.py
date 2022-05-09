@@ -1,14 +1,15 @@
-from prefect import Flow
+from prefect import Flow, Parameter
 
 from src import tasks
-from src.repositories import enim_accidents_client_factory
+from config import Config
 
 combine_enim_accidents_with_ship_flow = Flow("combine_enim_accidents_with_ship_flow")
-enim_accident_client = enim_accidents_client_factory()
 
+
+enim_accident_client_param = Parameter(name="enim_accident_client", default=Config.ENIM_ACCIDENT_CLIENT,)
 combine_enim_accidents_with_ship_flow.set_dependencies(
     task=tasks.extract_enim_accidents,
-    keyword_tasks=dict(enim_accident_client=enim_accident_client),
+    keyword_tasks=dict(enim_accident_client_implementation=enim_accident_client_param),
 )
 
 combine_enim_accidents_with_ship_flow.set_dependencies(
