@@ -1,23 +1,14 @@
 from prefect import Flow
 
 from src import tasks
+from src.repositories import enim_accidents_client_factory
 
 combine_enim_accidents_with_ship_flow = Flow("combine_enim_accidents_with_ship_flow")
+enim_accident_client = enim_accidents_client_factory()
 
-combine_enim_accidents_with_ship_flow.add_edge(
-    tasks.extract_enim_accidents,
-    tasks.extract_ship_data_from_enim_accidents,
-    "enim_accidents",
-)
-combine_enim_accidents_with_ship_flow.add_edge(
-    tasks.extract_enim_accidents,
-    tasks.combine_enim_accidents_with_ships,
-    "enim_accidents",
-)
-combine_enim_accidents_with_ship_flow.add_edge(
-    tasks.extract_ship_data_from_enim_accidents,
-    tasks.combine_enim_accidents_with_ships,
-    "available_ships",
+combine_enim_accidents_with_ship_flow.set_dependencies(
+    task=tasks.extract_enim_accidents,
+    keyword_tasks=dict(enim_accident_client=enim_accident_client),
 )
 
 combine_enim_accidents_with_ship_flow.set_dependencies(

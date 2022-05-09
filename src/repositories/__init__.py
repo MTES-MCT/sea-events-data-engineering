@@ -1,4 +1,5 @@
-from .enim_accidents import EnimAccidentClient
+from .enim_accidents import client_factory as enim_accidents_client_factory
+from .enim_accidents.abc import EnimAccidentClientABC
 from .ships import ShipClient
 from .enim_accidents_with_ships_data import EnimAccidentWithShipsDataClient
 from .seamis_reports import SeamisReportClient

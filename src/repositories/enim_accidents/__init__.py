@@ -1,6 +1,6 @@
-from config import Config
+from .fake.client import EnimAccidentClientFake
 from .abc import EnimAccidentClientABC
-from src.entities import AccidentEnim
+from config import Config
 
 
 def repository_setup(repository_implementation: str):
@@ -18,20 +18,17 @@ def repository_setup(repository_implementation: str):
             )
 
 
-class EnimAccidentClient(EnimAccidentClientABC):
-    def __init__(self, enim_accidents_repository: str = Config.ENIM_ACCIDENT_CLIENT):
-        self._implementation: EnimAccidentClientABC = NotImplemented
-        match enim_accidents_repository:
-            case "fake":
-                from src.repositories.enim_accidents.fake.client import (
-                    EnimAccidentClientFake,
-                )
+def client_factory(
+    repository_implementation: str = Config.ENIM_ACCIDENT_CLIENT,
+) -> EnimAccidentClientABC:
+    match repository_implementation:
+        case "fake":
+            from src.repositories.enim_accidents.fake.client import (
+                EnimAccidentClientFake,
+            )
 
-                self._implementation = EnimAccidentClientFake()
-            case _:
-                raise ValueError(
-                    f"Unknown enim accident client: {Config.ENIM_ACCIDENT_CLIENT}"
-                )
-
-    def get_all(self) -> list[AccidentEnim]:
-        return self._implementation.get_all()
+            return EnimAccidentClientFake()
+        case _:
+            raise ValueError(
+                f"Unknown enim accident client: {repository_implementation}"
+            )
