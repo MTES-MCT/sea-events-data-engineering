@@ -15,7 +15,9 @@ def repository_setup(repository_implementation: str):
 
             fake_repository_setup()
         case "dam_oracle":
-            from .dam_oracle.database import repository_setup as dam_oracle_repository_setup
+            from .dam_oracle.database import (
+                repository_setup as dam_oracle_repository_setup,
+            )
 
             dam_oracle_repository_setup()
         case _:

@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class Ship(BaseModel):
-    registry_number: int
+    registry_number: str
     ship_name: str
     num_version: int
     IMO_number: int
@@ -19,7 +19,7 @@ class Ship(BaseModel):
 
 
 class AccidentEnim(BaseModel):
-    registry_number: int
+    registry_number: str
     employer_number: str
     SIRET: str
     is_commute_accident: bool
@@ -37,6 +37,27 @@ class AccidentEnimWithShipData(BaseModel):
     event_date: str
     offloading_date: str | None
     ship_name: str | None
+    num_version: int | None
+    IMO_number: int | None
+    flag_state: str | None
+    gross_tonnage: int | None
+    built_year: int | None
+    hull_material: str | None
+    propulsion_type: str | None
+    length_overall: int | None
+    national_location: str | None
+    navigation_type_navpro: str | None
+    navigation_type_gina: str | None
+    ship_type: str | None
+
+
+class SeamisReport(BaseModel):
+    report_identifier: str
+    registry_number: str | None
+    occurrence_date: str
+
+
+class SeamisReportWithShipData(SeamisReport):
     num_version: int | None
     IMO_number: int | None
     flag_state: str | None
